@@ -1,11 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="./style.css"/>
-    <title>MakerLounge</title>
-  </head>
-  <body>
+<head>
+  <title>MakerLounge</title> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="763538135967-gcrh154tcddj1nhgka84t1qsp0228627.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src = "app.js"></script> 
+  <script> 
+  $('.content').hide(); 
+  $('.goodbye').hide(); 
+  </script> 
+</head>
+<body>
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -23,8 +31,33 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    <h1>MakerLounge</h1>
-    <div id="app">
+    <div class="name">
+        <h1> MakerLounge</h1>
     </div>
-  </body>
+    <div id='signin_a'>
+      <div class="awesome">
+        <h3>Sign in using Gmail!</h3>
+      </div>  
+      <div class="g-signin2" data-onsuccess="onGoogleSignIn" data-theme="dark"></div>
+    </div>
+
+    <div id="messages"></div>
+
+    <div id="middle_layer">
+      <p>Sign in with Facebook to enter the MakerLounge!</p>
+    </div>
+
+    <div class="fb-login-button" data-scope:"public_profile" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" onlogin="fbLogin()"></div>
+
+    <div class="content">
+      <h3>Welcome to the MakerLounge!</h3> 
+      <p>There's not a whole lot here at the moment. But please do enjoy this tasty Nyan Cat gif.</p>
+      <p>It's surfing on a Pop Tart. I've always wanted to surf on a PopTart.</p> 
+      <img src="assets/Slide_Nyan_Cat.gif">
+    </div>
+    <div class='goodbye'>
+      <button class="logout" onclick="googleSignOut()">Log Out</button> 
+    </div>
+   
+</body>
 </html>

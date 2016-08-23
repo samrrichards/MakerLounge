@@ -28,7 +28,9 @@ const config = {
         include : APP_DIR,
         loader : 'babel',
         query: {
-          presets: ['es2015', 'stage-0', 'react']
+          presets: ['babel-preset-es2015',
+          'babel-preset-stage-0',
+          'babel-preset-react'].map(require.resolve)
         }
       },
       {
